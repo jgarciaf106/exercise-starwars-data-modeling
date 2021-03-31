@@ -29,6 +29,9 @@ class Person(Base):
     url = Column(String(250), nullable=False) 
     vehicle = Column(Integer, ForeignKey("vehicles.id"),  nullable=False)
 
+    def to_dict(self):
+        return {}
+
 class Planet(Base):
     __tablename__ = 'planets'
     id = Column(Integer, primary_key=True)
@@ -45,6 +48,9 @@ class Planet(Base):
     surface_water = Column(Integer, nullable=False) 
     terrain = Column(String(250), nullable=False) 
     url = Column(String(250), nullable=False) 
+
+    def to_dict(self):
+        return {}
 
 class Specie(Base):
     __tablename__ = 'species'
@@ -65,6 +71,9 @@ class Specie(Base):
     skin_colors = Column(String(250), nullable=False)
     url = Column(String(250), nullable=False)
 
+    def to_dict(self):
+        return {}
+
 class Vehicle(Base):
     __tablename__ = 'vehicles'
     id = Column(Integer, primary_key=True)
@@ -83,6 +92,9 @@ class Vehicle(Base):
     pilots = Column(String(250), nullable=False)
     films = Column(Integer, ForeignKey("films.id"), nullable=False)
     url = Column(String(250), nullable=False)
+
+    def to_dict(self):
+        return {}
 
 class Starship(Base):
     __tablename__ = 'starships'
@@ -106,6 +118,9 @@ class Starship(Base):
     starship_class = Column(String(250), nullable=False)
     url = Column(String(250), nullable=False)
 
+    def to_dict(self):
+        return {}
+
 class Film(Base):
     __tablename__ = 'films'
     id = Column(Integer, primary_key=True)
@@ -123,6 +138,9 @@ class Film(Base):
     title = Column(String(250), nullable=False)
     url = Column(String(250), nullable=False)
     vehicles = Column(Integer, ForeignKey("vehicles.id"), nullable=False)
+
+    def to_dict(self):
+        return {}
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
